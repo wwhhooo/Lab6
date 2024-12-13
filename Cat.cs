@@ -1,16 +1,8 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Lab_6
 {
-    // Интерфейс для мяукающих объектов
-    public interface IMeowable
-    {
-        void Meow();
-        void Meow(int times);
-    }
-
     // Класс Кот, реализующий интерфейс IMeowable
     public class Cat : IMeowable
     {
@@ -50,32 +42,6 @@ namespace Lab_6
             Console.WriteLine($"{Name}: {meows}!");
         }
     }
-
-    // Класс-обертка для отслеживания количества мяуканий
-    public class MeowCounter : IMeowable
-    {
-        private readonly IMeowable meowowable;
-        public int MeowCount { get; private set; }
-
-        public MeowCounter(IMeowable meowable)
-        {
-            meowowable = meowable;
-            MeowCount = 0;
-        }
-
-        public void Meow()
-        {
-            meowowable.Meow();
-            MeowCount++;
-        }
-
-        public void Meow(int times)
-        {
-            meowowable.Meow(times);
-            MeowCount += times;
-        }
-    }
-
     // Класс ZomboCat, реализующий интерфейс IMeowable
     public class ZomboCat : IMeowable
     {
@@ -106,3 +72,4 @@ namespace Lab_6
         }
     }
 }
+
